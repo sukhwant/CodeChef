@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<math.h>
+ 
+int main(){
+ 
+	int tc,T;
+	scanf("%d",&T);
+	for(tc=0;tc<T;tc++){
+		long long int n,i,sum=0;
+		scanf("%lld",&n);
+		long long int nsqrt=floor(sqrt(n));
+		//printf("sqrt: %d\n",nsqrt);
+		for(i=1;i<=nsqrt;i++){
+			if(n%i==0){
+				//printf("numbers: %d %d\n",i,n/i);
+				sum+=i+(n/i);
+			}
+		}
+		if(n==nsqrt*nsqrt){
+			sum-=nsqrt;
+		}
+		printf("%lld\n",sum);
+	}
+	return 0;
+} 
