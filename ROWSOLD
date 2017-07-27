@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <string.h>
+ 
+#define MAX_SIZE 100007
+int main(){
+    
+    int tc,T;
+    scanf("%d",&T);
+    for(tc=0;tc<T;tc++){
+        char str[MAX_SIZE];
+        scanf("%s",str);
+        long long len = strlen(str);
+        long long numberOfOnes=0,i;
+        long long shiftPosition;
+        long long totalShiftCount = 0;
+        long long totalTouchCount =0;
+        long  long previousTouchCount=0,currentTouchPoint;
+        for(i=len-1;i>=0;i--){
+            if(str[i]=='1'){
+                shiftPosition = len-numberOfOnes-i-1;
+                numberOfOnes++;
+                totalShiftCount += shiftPosition;
+                
+                //Calculate touch counts
+                
+                if(previousTouchCount==0 && shiftPosition>0) {
+                    currentTouchPoint = 1;
+                    previousTouchCount = currentTouchPoint;
+                    totalTouchCount += currentTouchPoint;
+                }
+                else{
+                    if(str[i+1]=='0'){
+                        currentTouchPoint = previousTouchCount + 1;
+                    } else{
+                        currentTouchPoint = previousTouchCount;
+                    }
+                    totalTouchCount += currentTouchPoint;
+                    previousTouchCount = currentTouchPoint;
+                }
+            }
+        }
+        
+        printf("%lld\n",totalShiftCount+totalTouchCount);
+        
+    }
+    return 0;
+}
+ 
