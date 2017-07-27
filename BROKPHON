@@ -1,0 +1,35 @@
+#include<stdio.h>
+ 
+int main(){
+ 
+	int tc,T;
+	scanf("%d",&T);
+	for(tc=0;tc<T;tc++){
+		//printf("\ntest\n");
+		int n;
+		scanf("%d",&n);
+		int arr[n],i;
+		for(i=0;i<n;i++){
+			scanf("%d",&arr[i]);
+		}
+		
+		int currWrong=-1,count=0;
+		for(i=0;i<n-1;i++){
+			if(arr[i]!=arr[i+1]){
+				if(currWrong!=i){
+					//printf("Two: %d\n",i);
+					count+=2;
+				}
+				else{
+					//printf("One: %d\n",i);
+					count+=1;
+				}
+				
+				currWrong=i+1;
+			}
+		}
+		
+		printf("%d\n",count);
+	}
+	return 0;
+} 
