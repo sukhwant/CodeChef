@@ -1,0 +1,66 @@
+#include<stdio.h>
+ 
+int calsulateSum(number){
+	
+	while(number>9)
+	{
+		int temp = number;
+		int sum=0;
+		while(temp>0)
+		{
+			sum=sum+temp%10;
+			temp=temp/10;
+		}
+		number=sum;
+	}
+	
+	return number;
+}
+int main()
+{
+	int tc,T;
+	scanf("%d",&T);
+	for(tc=0;tc<T;tc++)
+	{
+		int N,largest = -1,i,temp,sum;
+		scanf("%d",&N);
+		for(i=0;i<N;i++)
+		{
+			scanf("%d",&temp);
+			sum=calsulateSum(temp);
+			//printf("%d %d\n",temp,sum);
+			if(sum>largest)
+			{
+				largest=sum;
+			}
+		}
+		
+		switch(largest){
+			case 0: printf("red\n");
+				    break;            
+			case 1: printf("blue\n");
+					break; 
+			case 2: printf("pink\n");
+					break; 
+			case 3: printf("white\n");
+					break; 
+			case 4: printf("black\n");
+					break; 
+			case 5: printf("violet\n");
+					break; 
+			case 6: printf("cyan\n");
+					break; 
+			case 7: printf("yellow\n");
+					break; 
+			case 8: printf("green\n");
+					break; 
+			case 9: printf("brown\n");
+					break; 
+			
+		}
+	}
+	
+	return 0;
+}
+ 
+Comments 
