@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<stdlib.h>
+ 
+int cmpfunc(const void * a, const void * b) {
+	return ( * (int * )b -  * (int * )a);
+}
+ 
+int main(){
+ 
+	int tc,T;
+	scanf("%d",&T);
+	for(tc=0;tc<T;tc++){
+		int i,n,sum=0,ans=0;
+		scanf("%d",&n);
+		int arr[n];
+		for(i=0;i<n;i++){
+			scanf("%d",&arr[i]);
+			if(arr[i]<2)
+				ans=-1;
+		}
+		qsort(arr,n,sizeof(int),cmpfunc);
+		for(i=0;i<n-1;i++){
+			sum+=arr[i];
+		}
+		sum+=2;
+		if(ans==-1)
+			printf("-1\n");
+		else
+			printf("%d\n",sum);
+	}
+	return 0;
+} 
