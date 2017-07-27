@@ -1,0 +1,68 @@
+#include<stdio.h>
+ 
+int main()
+{
+    int n,g,i,r,arr[1000000],count,m,t,k,ans[100000],p=3;
+     arr[1]=1;
+     arr[2]=2;
+     arr[3]=3;
+     
+    scanf("%d",&t);
+    for(k=0;k<t;k++)
+    {
+     count=0;
+     scanf("%d",&n);
+     scanf("%d",&g);
+     if(n>p)
+     {
+     for(i=p+1;i<=n;i++)
+     {
+                 arr[i]=(arr[i-1]+arr[i-2])%1000000007;
+                             }
+    m=arr[n];
+     while(m!=0)
+     {
+                 r=m%2;
+                 m=m/2;
+                 if(r==1)
+                         count++;
+                         } //end of while
+     if(count==g) {
+                 ans[k]=1;
+                 }
+     else {
+                 ans[k]=0;
+                 }
+     p=n;
+                 } //end of if
+     else
+     {
+         m=arr[n];
+         while(m!=0)
+         {
+                 r=m%2;
+                 m=m/2;
+                 if(r==1)
+                         count++;
+         } //end of while
+          if(count==g) {
+                 ans[k]=1;
+                 }
+          else {
+                 ans[k]=0;
+                 }
+          }
+     } // end of test
+     //print the result
+     for(i=0;i<t;i++)
+     {
+                     if(ans[i]==0)
+                                  printf("INCORRECT\n");
+                     else
+                                  printf("CORRECT\n");
+                                  }
+         
+     return 0;
+     }
+ 
+Comments 
