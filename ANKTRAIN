@@ -1,0 +1,20 @@
+#include<stdio.h>
+ 
+int main(){
+	
+	char arr[8][4]={"SL", "LB", "MB", "UB", "LB", "MB", "UB", "SU"};
+	int arrNumber[]= {7,4,5,6,1,2,3,8};
+	int tc,T;
+	scanf("%d",&T);
+	for(tc=0;tc<T;tc++){
+		int n;
+		scanf("%d",&n);
+		int rem=n%8;
+		int quo = n/8;
+		if(rem>0)
+			printf("%d%s\n",8*quo+arrNumber[rem],arr[rem]);
+		else
+			printf("%d%s\n",8*quo-1,arr[rem]);
+	}
+	return 0;
+} 
