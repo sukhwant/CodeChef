@@ -1,0 +1,25 @@
+#include<stdio.h>
+ 
+int main()
+{
+    int test,N,arr[100004],velocity;
+    int i,j;
+    scanf("%d",&test);
+    for(i=0;i<test;i++)
+    {
+                 scanf("%d",&N);
+                 for(j=0;j<N;j++)
+                                 scanf("%d",&arr[j]); 
+                 velocity=arr[N-1];
+                 
+                 for(j=N-2;j>=0;j--)
+                 {
+                                    velocity++;
+                                    if(velocity<arr[j])
+                                                       velocity=arr[j];
+                                 } 
+                                 
+                 printf("%d\n",velocity);    
+                       }
+    return 0;
+} 
