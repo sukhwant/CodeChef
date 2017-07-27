@@ -1,0 +1,29 @@
+#include<stdio.h>
+#define MAX 10000
+int main(){
+	
+	int tc,T;
+	char str1[MAX],str2[MAX];
+	scanf("%d",&T);
+	for(tc=0;tc<T;tc++){
+		int arr[2][26]={0},i;
+		scanf("%s%s",str1,str2);
+		for(i=0;i<str1[i]!='\0';i++){
+			arr[0][str1[i]-97]=1;
+		}
+		for(i=0;i<str2[i]!='\0';i++){
+			arr[1][str2[i]-97]=1;
+		}
+ 
+		for(i=0;i<26;i++){
+			if(arr[0][i]==1 && arr[1][i]==1){
+				printf("Yes\n");
+				break;
+			}
+		}
+		if(i==26){
+			printf("No\n");
+		}
+	}
+	return 0;
+} 
