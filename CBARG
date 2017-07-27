@@ -1,0 +1,23 @@
+#include<stdio.h>
+ 
+int main(){
+	int tc,T;
+	scanf("%d",&T);
+	for(tc=0;tc<T;tc++){
+		long long int n,i,curr=0,sum=0,temp;
+		scanf("%lld",&n);
+		for(i=0;i<n;i++){
+			scanf("%lld",&temp);
+			if(curr<temp){
+				sum+=temp-curr;
+				curr=temp;
+			}
+			else{
+				curr=temp;
+			}
+		}
+		printf("%lld\n",sum);
+	}
+	return 0;
+}
+ 
