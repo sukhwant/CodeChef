@@ -1,0 +1,21 @@
+#include<stdio.h>
+ 
+long long int calculateDelta(long long int k,long long int c){
+	if(c<k){
+		return k-c-1;
+	}
+	else
+		return 0;
+}
+ 
+int main(){
+ 
+	int tc,T;
+	scanf("%d",&T);
+	for(tc=0;tc<T;tc++){
+		long long int r,g,b,k;
+		scanf("%lld%lld%lld%lld",&r,&g,&b,&k);
+		printf("%lld\n",(3*(k-1)+1)-calculateDelta(k,r)-calculateDelta(k,g)-calculateDelta(k,b));
+	}
+	return 0;
+} 
