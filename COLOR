@@ -1,0 +1,26 @@
+#include<stdio.h>
+int max(int a,int b,int c){
+	return (a>b?a:b)>c?(a>b?a:b):c;
+}
+ 
+int main(){
+	
+	int tc,T;
+	scanf("%d",&T);
+	for(tc=0;tc<T;tc++){
+		int n,i,red=0,green=0,blue=0;
+		scanf("%d",&n);
+		char str[n+2];
+		scanf("%s",str);
+		for(i=0;str[i]!='\0';i++){
+			if(str[i]=='R')
+				red++;
+			else if(str[i]=='G')
+				green++;
+			else
+				blue++;
+		}
+		printf("%d\n",(red+green+blue)-max(red,blue,green));
+	}
+	return 0;
+}  
