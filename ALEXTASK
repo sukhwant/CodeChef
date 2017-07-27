@@ -1,0 +1,45 @@
+#include<stdio.h>
+#include<limits.h>
+ 
+static long long int gcd(long long int a, long long int b) {
+  long long int r, i;
+	while(b!=0){
+		r = a % b;
+		a = b;
+		b = r;
+	}
+	return a;
+}
+ 
+long long int LCM(long long int a, long long int b){
+	return (a*b)/gcd(a,b);
+}
+ 
+int main(){
+	
+	long long int tc,T;
+ 
+	scanf("%lld",&T);
+	for(tc=0;tc<T;tc++){
+		long long int n,i;
+		scanf("%lld",&n);
+		long long int arr[n];
+		for(i=0;i<n;i++){
+			scanf("%lld",&arr[i]);
+		}
+ 
+		long long int smallest=LLONG_MAX,temp,j;
+		for(i=0;i<n;i++){
+			for(j=i+1;j<n;j++){
+				temp = LCM(arr[i],arr[j]);
+				if(smallest>temp){
+					smallest=temp;
+				}
+			}
+		}
+ 
+		printf("%lld\n",smallest);
+ 
+	}
+	return 0;
+} 
