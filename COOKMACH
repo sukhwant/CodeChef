@@ -1,0 +1,28 @@
+#include<stdio.h>
+ 
+int isPowerOfTwo (int x)
+{
+     return x && (!(x&(x-1)));
+}
+ 
+int main(){
+    int tc,T;
+    scanf("%d",&T);
+    for(tc=0;tc<T;tc++){
+                        int a,b,step=0;
+                        scanf("%d%d",&a,&b);
+                        while(!isPowerOfTwo(a)){
+                                                a/=2;
+                                                step++;
+                                                }
+                        while(a!=b){
+							if(a<b)
+                                    a*=2;
+                            else
+									a/=2;
+                                    step++;
+                                    }
+                        printf("%d\n",step);
+                        }
+    return 0;
+}
