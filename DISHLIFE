@@ -1,0 +1,52 @@
+#include <stdio.h>
+ 
+int main(){
+    
+    int tc,T;
+    scanf("%d",&T);
+    for(tc=0;tc<T;tc++){
+        int n,k,i,numberOfFood,temp,j,p;
+        scanf("%d%d",&n,&k);
+        int hashArray[k+1];
+        //initialize hash
+        for(p=0;p<=k;p++){
+            hashArray[p]=0;
+        }
+        int nothingNewFoundOnIsland=0;
+        for(i=0;i<n;i++){ // Visit each Island
+            scanf("%d",&numberOfFood);
+            int foundNew=0;
+            for(j=0;j<numberOfFood;j++){
+                scanf("%d",&temp);
+                if(hashArray[temp]==0){
+                    hashArray[temp]=1;
+                    foundNew = 1;
+                }
+            }
+            if(foundNew==0){
+                nothingNewFoundOnIsland = 1;
+            }
+        }
+        
+        int isSad = 0;
+        //Check for sad
+        for(i=1;i<=k;i++){
+            if(hashArray[i]==0){
+                isSad=1;
+                break;
+            }
+        }
+        
+        if(isSad==1){
+            printf("sad\n");
+        }
+        // Check for all
+        else if(nothingNewFoundOnIsland==0){
+            printf("all\n");
+        }
+        else{
+            printf("some\n");
+        }
+    }
+    return 0;
+}
