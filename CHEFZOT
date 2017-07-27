@@ -1,0 +1,32 @@
+#include<stdio.h>
+//#include<conio.h>
+ 
+int main()
+{
+    long int temp,prev_diff=0,new_diff=0,i,n;
+    scanf("%d",&n);
+    
+    for(i=0;i<n;i++)
+    {
+                    scanf("%d",&temp);
+                    if(temp!=0)
+                    {
+                               new_diff++;
+                    }
+                    else
+                    {
+                        if(new_diff>=prev_diff)
+                        {
+                                               prev_diff=new_diff;
+                                               }
+                        new_diff=0;
+                    }
+                    }
+                    if(new_diff>prev_diff)
+                                          prev_diff=new_diff;
+                                          
+                    printf("\n%ld\n",prev_diff);
+                    //getch();
+                    return 0;
+}
+ 
