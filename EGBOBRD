@@ -1,0 +1,40 @@
+#include<stdio.h>
+ 
+int main(){
+ 
+	int tc,T;
+	scanf("%d",&T);
+	for(tc=0;tc<T;tc++){
+		long long int n,k,i;
+		scanf("%lld%lld",&n,&k);
+		long long int arr[n];
+		for(i=0;i<n;i++){
+			scanf("%lld",&arr[i]);
+		}
+		
+		long long int rem=0,package=0,p,temp;
+		for(i=0;i<n;i++){
+			//Eat from old enough.
+			rem-=1;
+			if(rem>0){
+				temp=arr[i];
+				arr[i]-=rem;
+				rem=rem-temp;
+			}
+		
+			//calculate package needed for the day.
+			if(arr[i]>0){
+				p=arr[i]/k;
+				package+=p;
+				arr[i]-=p*k;
+				if(arr[i]>0){
+					package++;
+					rem=k-arr[i];
+				}
+			}
+		}
+		
+		printf("%lld\n",package);
+	}
+	return 0;
+}  
