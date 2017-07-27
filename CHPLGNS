@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<limits.h>
+#include<stdlib.h>
+struct point{
+	long long int maximum;
+	int id;
+};
+ 
+long long int cmpfunc (const void * a, const void * b)
+{
+   return ( *(long long int*)a - *(long long int*)b );
+}
+ 
+int main(){
+	
+	int tc,T;
+	scanf("%d",&T);
+	for(tc=0;tc<T;tc++){
+		long long int n,i,ver,j,max,x,y;
+		scanf("%lld",&n);
+		struct point arr[n];
+		int ans[n];
+		for(i=0;i<n;i++){
+			scanf("%lld",&ver);
+			max=INT_MIN;
+			for(j=0;j<ver;j++){
+				scanf("%lld %lld",&x,&y);
+				if(x>max)
+					max=x;
+			}
+			arr[i].maximum=max;
+			arr[i].id=i;
+		}
+		
+		qsort(arr, n, sizeof(struct point), cmpfunc);
+		
+		for(i=0;i<n;i++){
+			ans[arr[i].id]=i;
+		}
+		
+		for(i=0;i<n;i++)
+			printf("%d\n",ans[i]);
+	}
+	return 0;
+}
+ 
