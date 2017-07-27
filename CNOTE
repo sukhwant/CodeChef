@@ -1,0 +1,27 @@
+#include<stdio.h>
+ 
+int main()
+{
+	int tc,T;
+	scanf("%d",&T);
+	for(tc=0;tc<T;tc++)
+	{
+		int X,Y,K,N,i,temp_page,temp_price,answer=0;
+		scanf("%d %d %d %d",&X,&Y,&K,&N);
+		int remaining_pages = X-Y;
+		for(i=0;i<N;i++)
+		{
+			scanf("%d %d",&temp_page,&temp_price);
+			if(temp_page>=remaining_pages && temp_price<=K)
+			{
+				answer=1;
+			}
+		}
+		if(answer==1)
+			printf("LuckyChef\n");
+		else
+			printf("UnluckyChef\n");
+	}
+ 
+	return 0;
+} 
